@@ -7,16 +7,17 @@ Mini taller
 #include <string>
 using namespace std;
 
+//Funcion de la opcion 1
 void registrar(string nombre[], int &cantidades, int max, double promedio[]){
     if(cantidades > 0){
-        cout <<"Ya seregistraron todos los estudiantes"<< endl;
+        cout <<"Ya ser egistraron todos los estudiantes"<< endl;
         return;
     }
     
     for(int i = 0; i < 9; i++){
     cout << "Ingrese el numbre del estudiante" << i + 1 << ": " << endl;
     cin >> nombre[i];
-    cout << "Ingrese su promedio" << endl;
+    cout << "Ingrese su promedio (0-10)" << endl;
     cin >> promedio[i];
     cantidades++;
     }
@@ -24,6 +25,7 @@ void registrar(string nombre[], int &cantidades, int max, double promedio[]){
     cout << "Estudiantes registrados correctamente" << endl;
 }
 
+//Funcion de la opcion 2
 void mostrarTodos(string nombre[], double promedio[], int cantidades){
     if(cantidades == 0){
         cout << "No hay estudiantes registrados aun" << endl;
@@ -41,17 +43,72 @@ void mostrarTodos(string nombre[], double promedio[], int cantidades){
 
 }
 
-void buscar(bool encontrado = false, string nombre[], double promedio[], int cantidades ){
-    for(int i = 0; i < cantidades; i++){
-        if(nombre[i] == cantidades)
-        cout <<"Estudiante encontrado en la posicion " << i + 1 << ": " << endl;
-        encontrado = true;
-        break;
+//Funcion de la opcion 3
+void buscar(string nombre[], double promedio[], int cantidades ){
+    if(cantidades == 0){
+        cout << "No hay estudiantes registrados" << endl;
+        return;
     }
-    if(encontrado == false){
-        cout <<"Estudiante no encontado" << endl;
+    string buscado;
+    cout <<"Ingrese el nombre del estudiante a buscar: " << endl;
+    cin >> buscado;
+
+    bool encontrado = false;
+
+    for(int i = 0; i < cantidades; i++){
+        if(nombre[i] == buscado){
+            cout <<"estudiante encontrado en la posicion: " << i + 1 << endl;
+            cout << "Nombre: " << nombre[i] <<". Pormedio: " << promedio[i] << endl;
+            encontrado = true;
+            break;
+        }
     }
 
-    cout <<"ingrese el "
-    return;
+    if(encontrado == false){
+        cout <<"Estudiante no encontrado" << endl;
+    
+    }
+    
 }
+
+//Funcion de la opcion 4
+void reporte(string nombre[], double promedio[], int cantidades){
+    
+    if(cantidades == 0){
+    cout <<"No hay entudiantes registrados"<< endl;
+    }
+
+    //ordenar del mejor al menor 
+    string nombresOrdenados[9]; 
+    double promediosOrdenados[9]; 
+    
+    for(int i = 0;i < cantidades; i++){
+        nombresOrdenados[i] = nombre[i];
+        promediosOrdenados[i] = promedio[i];              
+    }
+
+    for(int i = 0; i < cantidades - 1 ; i++){
+        for(int j = 0; j < cantidades - 1; i++){
+            if(promediosOrdenados[j] < promediosOrdenados[j + 1]){
+                double tempProm = promediosOrdenados[j];
+                promediosOrdenados [j] = promediosOrdenados[j +1];
+                promediosOrdenados[j + 1] = tempProm;
+
+                string tempNom = nombresOrdenados[j];
+                nombresOrdenados [j] = nombresOrdenados[j +1];
+                nombresOrdenados[j + 1] = tempNom;                
+            }
+        }
+
+        cout <<"=== RANKING ===" <<endl;
+        for(int i = 0; i < cantidades; i++){
+            cout << i + 1 << "Primer Lugar: " << nombresOrdenados[i] << ". Promedio: " << promediosOrdenados[i] << endl;
+            
+        }
+    }
+    
+
+}
+
+//Opcion 5 
+
