@@ -10,7 +10,7 @@ using namespace std;
 //Funcion de la opcion 1
 void registrar(string nombre[], int &cantidades, int max, double promedio[]){
     if(cantidades > 0){
-        cout <<"Ya ser egistraron todos los estudiantes"<< endl;
+        cout <<"Ya se registraron todos los estudiantes"<< endl;
         return;
     }
     
@@ -110,5 +110,37 @@ void reporte(string nombre[], double promedio[], int cantidades){
 
 }
 
-//Opcion 5 
+//Funcion de la opcion 5
+void reconocimiento(string nombre[], double promedio[], int cantidades){
+    if(cantidades == 0){
+        cout <<"No hay estudiantes registrados" << endl;
+    }
+
+    int mejorPos = 0;
+
+    //Felicitar al numero 1
+    for(int i = 0; i < cantidades; i++){
+        if(promedio[i] > promedio[mejorPos]){
+            mejorPos = i;
+        }
+    }
+
+    cout <<"Felicidades " << nombre[mejorPos] << ". Tu promedio es: " << promedio[mejorPos] << endl;
+
+}
+
+//Funcion de la opcion 6
+void salir(int cantidades){
+    if(cantidades == 0){
+        cout << "No hay estudiantes registrados"<< endl;
+    }
+    else{
+        cout <<"Saliendo del programa..."<< endl;
+    }
+
+}
+
+int main(){
+    
+}
 
