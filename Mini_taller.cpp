@@ -141,6 +141,11 @@ void salir(int cantidades){
 }
 
 int main(){
-    
+    string nombre[9];
+    double promedio[9];
+
+    cout <<"=== MENÚ ===" << endl;
+    cout <<"1. Registrar datos" << endl;
+
 }
 
