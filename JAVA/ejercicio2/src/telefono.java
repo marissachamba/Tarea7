@@ -45,6 +45,11 @@ public class telefono {
         }
     }
 
-
+      public void mostrarInfo() {
+        System.out.println("Información del teléfono:");
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Precio: " + precio);
+    }
     
 }
