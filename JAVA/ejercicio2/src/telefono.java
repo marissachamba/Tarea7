@@ -15,5 +15,17 @@ public class telefono {
             this.precio = 0.0;
         }
     }
+    public String getMarca(){
+      return marca;
+    }
+
+    public String getModelo(){
+      return modelo;
+    }
+
+    public double getPrecio(){
+      return precio;
+    }
+
     
 }
